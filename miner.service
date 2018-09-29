@@ -1,0 +1,14 @@
+[Unit]
+Description=XMR Stak GPU Miner
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/xmr-stak
+PIDFile=/run/xmrstak.pid
+ExecStart=/usr/bin/screen -L -DmS miner /bin/bash /opt/xmr-stak/start_xca_mine.sh
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
